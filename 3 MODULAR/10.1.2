@@ -1,0 +1,66 @@
+Funcion fact <- numFact(num)
+	definir fact , i como entero
+	fact=1
+	Para i<-1 Hasta num Con Paso 1 Hacer
+		fact=fact*i
+	Fin Para
+Fin Funcion
+
+
+Funcion suma <- numSuma ( num1,num2 )
+	definir suma , i Como Entero
+	suma=0
+	Si num1<num2 Entonces
+		Para i<-num1+1 Hasta num2-1 Con Paso 1 Hacer
+			suma=suma+i
+		Fin Para
+	Sino
+		Para i<-num2+1 Hasta num2-1 Con Paso 1 Hacer
+			suma=suma+i
+		Fin Para
+	Fin Si	
+Fin Funcion
+
+
+Funcion may <- numMay(num1,num2)
+	definir may Como Entero
+	may = 0
+	
+	si num1>num2 Entonces
+		may = num1
+	Sino
+		may = num2
+	FinSi
+Fin Funcion
+
+
+Funcion men <- numMen(num1,num2)
+	definir men como entero
+	men = 0
+	
+	Si num1<num2 Entonces
+		men = num1
+	Sino
+		men = num2
+	Fin Si
+Fin Funcion
+
+
+
+
+Algoritmo sin_titulo
+	
+	definir num1, num2 Como Entero
+	
+	MOSTRAR "introduce un numero"
+	leer num1
+	mostrar "introduce otro numero"
+	leer num2
+	
+	mostrar " el numero menor es " numMen(num1,num2)
+	mostrar " el numero mayor es " numMay(num1,num2)
+	mostrar " la suma de los numeros comprendidos enrte ellos es " numSuma(num1,num2)
+	mostrar " el factorial de " num1 " es " numFact(num1)
+	mostrar " el factorial de " num2 " es " numFact(num2)
+	
+FinAlgoritmo

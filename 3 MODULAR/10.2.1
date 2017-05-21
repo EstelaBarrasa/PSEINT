@@ -1,0 +1,63 @@
+Funcion devolverMultiplos ( array,long, numMuestra )
+	definir i como entero
+	Para i<-0 Hasta long-1 Con Paso 1 Hacer
+		Si array[i]>numMuestra Entonces
+			Si array[i]%numMuestra==0 Entonces
+				Mostrar array[i]
+			Fin Si
+		Fin Si
+	Fin Para
+Fin Funcion
+
+Funcion suma <- devolverSumaMenores ( array, long, numMuestra )
+	definir men, cont , suma Como Entero
+	suma = 0
+	Para cont<-0 Hasta long-1 Con Paso 1 Hacer
+		Si numMuestra>array[cont] Entonces
+			suma = suma + array[cont]
+		Fin Si
+	Fin Para
+Fin Funcion
+
+Funcion may <- devolverMayores ( array, long, numMuestra )
+	definir may, cont Como Entero
+	may = 0
+	Para cont<-0 Hasta long-1 Con Paso 1 Hacer
+		Si numMuestra<array[cont] Entonces
+			may=may + 1
+		Fin Si
+	Fin Para
+Fin Funcion
+
+//esta funcion nos sirve para llenar cualquier 
+//tipo de array con numeros aleatorios
+Funcion   llenarArray ( array,pos )
+	definir i Como Entero
+	Para i<-0 Hasta pos-1 Con Paso 1 Hacer
+		array[i]=aleatorio(0,30)
+		//Para hacerlo manual seria:
+		//definir num , i como entero
+		//mostrar " introduce un numero"
+		//leer num
+		//array[i]=num
+		mostrar array[i]
+	Fin Para
+Fin Funcion
+
+
+
+
+Algoritmo ej_10_2_1
+	definir array  Como Entero
+	dimension array[10]
+	
+	llenarArray(array,10)
+	mostrar "-----------------------------"
+	mostrar " Escribe un numero de control"
+	leer num
+	
+	mostrar " Los numeros mayores que " num " son " devolverMayores(array,10,num)
+	mostrar " La suma de los menores es : " devolverSumaMenores(array,10,num)
+	mostrar " Los multiplos son : " devolverMultiplos(array,10,num)
+	
+FinAlgoritmo

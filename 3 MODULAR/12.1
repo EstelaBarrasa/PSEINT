@@ -1,0 +1,98 @@
+
+Funcion i<-ordenarNotas( arr, pos )
+	definir i, k, aux como numero
+	aux=0
+	Para i<-0 Hasta pos-1 Con Paso 1 Hacer
+		Para k<-i+1 Hasta pos-1 Con Paso 1 Hacer
+			si arr[k]<arr[i] Entonces
+				aux = arr[i]
+				arr[i]=arr[k]
+				arr[k]=aux
+			FinSi
+		Fin Para
+	Fin Para
+	
+	Para i<-0 Hasta pos-1 Con Paso 1 Hacer
+		mostrar arr[i]
+	Fin Para
+Fin Funcion
+
+
+Funcion apro <- mostrarApro ( arr, pos )
+	definir i , apro Como Entero
+	apro=0
+	Para i<-0 Hasta pos-1 Con Paso 1 Hacer
+		Si arr[i]>=5 Entonces
+			apro=apro+1
+		Fin Si
+	Fin Para
+Fin Funcion
+
+Funcion  med<- mediaNotas( arr, pos )
+	definir med , i Como Real
+	med = 0
+	Para i<-0 Hasta pos-1 Con Paso 1 Hacer
+		med = med + arr[i]
+	Fin Para
+	med = med / pos
+Fin Funcion
+
+Funcion  añadirNota ( arr, pos, nota )
+	arr[pos]=nota
+Fin Funcion
+
+
+
+
+Algoritmo sin_titulo
+	
+	definir respuesta , posicion , i como entero
+	definir arrayN , nota como real
+	dimension arrayN[10]
+	
+	nota = 0
+	posicion = 0
+	
+	Repetir
+		mostrar "-------------------MENÚ-------------------"	
+		mostrar "1.Añadir nota"
+		Mostrar "2.Mostrar media"
+		Mostrar "3.Total aprobados"
+		Mostrar "4.Mostrar las notas introducidas"
+		mostrar "5.Salir"
+		mostrar "----------Introduce una opción------------"
+		leer respuesta
+		mostrar "----------------------"
+		
+		Segun respuesta Hacer
+			1:
+				si posicion <10 entonces
+					mostrar "introducir nota"
+					leer nota
+					añadirNota(arrayN, posicion, nota)
+					posicion = posicion + 1
+				Sino
+					mostrar "No puedes introducir mas notas"
+				fin si
+			2:
+				mostrar "------------------------------------------------"
+				mostrar " La media de las notas introducidas es : " mediaNotas(arrayN,posicion)
+				mostrar "------------------------------------------------" 
+			3:
+				mostrar "--------------------------------"
+				mostrar " Los aprobados son : " mostrarApro(arrayN,posicion)
+				mostrar "--------------------------------"
+			4:
+				mostrar "------------------------"
+				mostrar " Las notas son : " ordenarNotas(arrayN,posicion)
+				mostrar "------------------------"
+			De Otro Modo:
+				mostrar "------------------------------"
+				mostrar " Introduce una opcion valida"
+				mostrar "------------------------------"
+		Fin Segun
+		
+	Hasta Que respuesta = 5
+	
+	
+FinAlgoritmo

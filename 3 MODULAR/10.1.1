@@ -1,0 +1,94 @@
+Funcion  ordenarArrayPorVocales ( array, pos )
+	definir i , k , longi, longk , suma1, suma2 , cont Como Entero
+	definir letra , aux como caracter
+	Para i<-0 Hasta pos - 1 Con Paso 1 Hacer
+		Para k<-i+1 Hasta pos - 1 Con Paso 1 Hacer
+			Si Longitud(array[k])==Longitud(array[i]) Entonces
+				longi=Longitud(array[i])
+				longk=Longitud(array[k])
+				suma1=0
+				suma2=0
+				//suma de las vocales de la primera palabra
+				Para cont<-0 Hasta pos-1 Con Paso 1 Hacer
+					array[i] = minusculas(array[i])
+					//Guardamos en la variable letra, las letras una a una
+					//que forman la palabra que hay en la posición i
+					letra=Subcadena(array[i],cont,cont)
+					
+					Segun letra Hacer
+						"a","e","i","o","u","á","é","í","ó","ú":
+							suma1=suma1+1
+					Fin Segun
+				Fin Para
+				Para cont<-0 Hasta pos -1 Con Paso 1 Hacer
+					array[k] = Minusculas(array[k])
+					//guardamos en la variable letra, las letras una a una
+					//que forman la palabra que hay en la posicion k
+					letra= Subcadena(array[k], cont, cont)
+					
+					Segun letra Hacer
+						"a", "e", "i", "o", "u", "á", "é", "í", "ó", "ú" :
+							suma2=suma2+1
+							
+					Fin Segun
+				Fin Para
+				//Como ya tenemos las sumas de las vocales de cada palabra
+				//comparamos la una con la otra y ordenamos en consecuencia.
+				Si suma2>suma1 Entonces
+					aux=array[k]
+					array[k]=array[i]
+					array[i]=aux
+				Fin Si
+			Fin Si
+		Fin Para
+	Fin Para
+Fin Funcion
+
+
+Funcion  mostrarArray(array,pos)
+	definir i Como Entero
+	Para i<-0 Hasta pos -1 Con Paso 1 Hacer
+		mostrar array[i]
+	Fin Para
+Fin Funcion
+
+
+Funcion  ordenarArrayTexto( array,pos )
+	definir i , k como entero
+	definir aux como texto
+		Para i<-0 Hasta pos-1 Con Paso 1 Hacer
+		Para k<-i+1 Hasta pos-1 Con Paso 1 Hacer
+			Si Longitud(array[k])<longitud(array[i]) Entonces
+				aux=array[i]
+				array[i]=array[k]
+				array[k]=aux
+			Fin Si
+		fin para
+	fin para
+Fin Funcion
+
+
+Funcion  leerYllenarArray(array,pos)
+	definir i Como Entero
+	definir text como texto
+	Para i<-0 Hasta pos - 1  Con Paso 1 Hacer
+		mostrar "introduce un texto"
+		leer text
+		array[i]=text
+	Fin Para
+Fin Funcion
+
+
+
+
+Algoritmo EJ10_1_1
+	
+	definir arrayText como texto
+	dimension arrayText[10]
+	
+	leerYllenarArray(arrayText,10)
+	ordenarArrayTexto(arrayText,10)
+	mostrarArray(arrayText,10)
+	ordenarArrayPorVocales(arrayText,10)
+	
+FinAlgoritmo
